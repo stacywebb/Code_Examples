@@ -1,0 +1,24 @@
+
+
+Below are URL examples for using the CSService.
+
+
+View an EBOOK with ISBN 00000COURSESMART29
+
+http://localhost:8000/ServiceHub/<tennant_name>/ViewEBook/00000COURSESMART29/
+
+
+View the Bookshelf:
+
+http://localhost:8000/ServiceHub/<tennant_name>/ViewBookshelf/
+
+
+Get a time-sensitive link to render the eBook:
+
+http://localhost:8000/ServiceHub/<tennant_name>/GetEBookLink/00000COURSESMART29/
+
+
+Get a time-sensitive link to render the bookshelf:
+
+http://localhost:8000/ServiceHub/<tennant_name>/GetBookshelfLink/
+

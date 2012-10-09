@@ -1,0 +1,21 @@
+@CHARSET "UTF-8";
+
+.anchorButton {
+	vertical-align: middle;
+}
+
+.label {
+	width: 80px;
+}
+
+td {
+    vertical-align: middle;
+    padding: 3px;
+    width: 80px;
+}
+
+input {
+    vertical-align: middle;
+    padding: 3px;
+    width: 80px;
+}

@@ -1,0 +1,4 @@
+
+https://myscad.scad.edu/cas/login
+validateUrl = 'https://myscad.scad.edu/cas/serviceValidate'
+

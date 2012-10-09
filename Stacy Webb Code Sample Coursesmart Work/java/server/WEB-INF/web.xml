@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+
+	<description>
+      CourseSmart OAuthLite servlet
+    </description>
+	<display-name>OAuthLite</display-name>
+
+	<servlet>
+		<servlet-name>OAuthLite</servlet-name>
+		<servlet-class>com.coursesmart.servicehub.servlet.OAuthLiteServlet</servlet-class>
+		<init-param>
+			<param-name>key</param-name>
+			<param-value>12345</param-value>
+		</init-param>
+		<init-param>
+			<param-name>secret</param-name>
+			<param-value>secret</param-value>
+		</init-param>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>OAuthLite</servlet-name>
+		<url-pattern>/*</url-pattern>
+	</servlet-mapping>
+
+</web-app>

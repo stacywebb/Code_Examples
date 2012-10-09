@@ -1,0 +1,49 @@
+<project basedir="." name="CSServiceHub">
+
+  	<!-- set global properties for this build -->
+	<property name="project" value="${basedir}" />
+	<property name="projects" value="${basedir}/.." />
+	<property name="dir.src" value="${project}/java/src" />
+	<property name="dir.build" value="${project}/server/WEB-INF/classes" />
+	<property name="dir.classes" value="${project}/server/WEB-INF/classes" />
+	<property name="dir.lib" value="${project}/java/lib" />
+	<property name="dir.export" value="${project}/export" />
+	<property name="dir.docs" value="${project}/docs" />
+	<property name="dir.staging" value="${project}/export/staging" />
+	
+	<property name="dir.server" value="${project}/java/server" />
+	
+	<target name="packageOAuthLite" description="Deploy files to Kinexis server">
+		<delete file="${dir.export}/oauthlite*zip" />
+		<delete dir="${dir.staging}" />
+		<mkdir dir="${dir.staging}" />
+		<copy todir="${dir.staging}/docs" >
+			<fileset dir="${dir.docs}" includes="OAuthLite.docx" /> 
+		</copy>
+		<copy todir="${dir.staging}/src" >
+			<fileset dir="${dir.src}" includes="**/**.java" /> 
+		</copy>
+		<copy todir="${dir.staging}/server" >
+			<fileset dir="${dir.server}" excludes="**/work,**/**.ser" /> 
+		</copy>
+		<mkdir dir="${dir.staging}/python" />
+		<copy todir="${dir.staging}/components" >
+			<fileset dir="${project}/ServiceHub/components" includes="*" />
+		</copy>
+		<copy todir="${dir.staging}/python/security/oauth" >
+		<fileset dir="${project}/ServiceHub/security/oauth" includes="**.py" />
+	</copy>
+		<antcall target="zipServer"></antcall>
+		<delete dir="${dir.staging}" />
+	</target>
+
+	<target name="zipServer">
+		<tstamp/>
+		<zip destfile="${dir.export}/oauthlite.${DSTAMP}.zip">
+			<zipfileset dir="${dir.staging}" />
+		</zip>
+		<zip destfile="${dir.export}/staging/OAuthLite.war">
+			<zipfileset dir="${dir.staging}/server" />
+		</zip>
+	</target>	
+</project>
